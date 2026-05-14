@@ -1,0 +1,594 @@
+/* ================== PRELOADER ================== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #0a1a3d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        .loader-circle {
+            width: 120px;
+            height: 120px;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top: 6px solid #00bfff;
+            border-radius: 50%;
+            animation: spin 1.2s linear infinite;
+            margin-bottom: 40px;
+        }
+
+        .preloader-text {
+            font-size: 42px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 8px;
+            position: relative;
+        }
+
+        .preloader-text span {
+            opacity: 0;
+            animation: fadeInLetter 0.6s forwards;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInLetter {
+            to { opacity: 1; }
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+        }
+
+        /* ================== FLOATING WHATSAPP BUTTON ================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 3000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20c258;
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* TOP NAVBAR */
+        .topbar {
+            width: 100%;
+            height: 70px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: #f1f1f1;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Desktop Navigation */
+        .nav-menu {
+            display: none;
+            align-items: center;
+            gap: 25px;
+            font-size: 16px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: #e8f0fe;
+            color: #1a73e8;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .icon {
+            font-size: 22px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            overflow-y: auto;
+            transition: 0.3s ease;
+            z-index: 2000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #1a73e8;           /* Blue color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu {
+            padding: 10px 0;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #f5f5f5;
+        }
+
+        .menu-item.active {
+            background: #e8f0fe;
+            color: #1a73e8;
+            border-left: 5px solid #1a73e8;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.4);
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 1500;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Content */
+        .content {
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+        /* ================== RESPONSIVE ================== */
+        @media (min-width: 1024px) {
+            .menu-btn {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .nav-menu {
+                display: none;
+            }
+        }
+
+.players2{
+   animation-name:bounceInLeft ;
+   animation-duration: 5s;
+   animation: auto linear bounceInLeft both;
+   animation-timeline: view();
+   animation-range: entry 10% cover 20%;
+  }
+
+@keyframes bounceInLeft {
+   0% {
+      opacity: 0;
+      transform: translateX(-2000px);
+   }
+   60% {
+      opacity: 1;
+      transform: translateX(30px);
+   }
+   80% {
+      transform: translateX(-10px);
+   }
+   100% {
+      transform: translateX(0);
+   }
+}
+.players3{
+   animation-name:bounceInRight ;
+   animation-duration: 5s;
+   animation: auto linear bounceInRight both;
+   animation-timeline: view();
+   animation-range: entry 10% cover 30%;
+  }
+
+  @keyframes bounceInRight {
+     0% {
+        opacity: 0;
+        transform: translateX(2000px);
+     }
+     60% {
+        opacity: 1;
+        transform: translateX(-30px);
+     }
+     80% {
+        transform: translateX(10px);
+     }
+     100% {
+        transform: translateX(0);
+     }
+  }
+
+  .live-clip-animation{
+     animation-name:lightSpeedIn ;
+     animation-duration: 5s;
+     animation: auto linear bounceInRight both;
+     animation-timeline: view();
+     animation-range: entry 10% cover 30%;
+    }
+
+
+  @keyframes lightSpeedIn {
+   0% {
+      transform: translateX(100%) skewX(-30deg);
+      opacity: 0;
+   }
+   60% {
+      transform: translateX(-20%) skewX(30deg);
+      opacity: 1;
+   }
+   80% {
+      transform: translateX(0%) skewX(-15deg);
+      opacity: 1;
+   }
+   100% {
+      transform: translateX(0%) skewX(0deg);
+      opacity: 1;
+   }
+}
+/* animation end */
+@media (prefers-reduced-motion: no-preference) {
+  .home-animation{
+    animation-name: fadeInDown;
+    animation-duration: 2s;
+    animation: auto linear fadeInDown both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
+
+  }
+}
+
+
+
+body{ animation: fadeInDown 5s; }
+@keyframes fadeInDown {
+   0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+@media (prefers-reduced-motion: no-preference) {
+  body{
+    animation-name: fadeInDown;
+    animation-duration: 2s;
+
+  }
+}
+/* Please Ensure That you go through every comment properly and carefully before messing with any code
+Every block of code was wrapped with a comment for better understanding of the code.
+*/
+
+/* The styling here affect every anchor(a) element in the page except for some few places */
+a {
+  color: white !important;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+}
+/* ..........  */
+
+
+
+
+a{
+  color: black!important;
+}
+/* The class name should help you recognise the element i'm referring to, and the reason why i gave these setions
+margin is to maintain white space in between them */
+section.about, section., section.partnersAndSponsors {
+  margin: 100px 0px;
+}
+
+section.about div.about-header h2 {
+  font-size: 32px;
+}
+
+/* This section is actually for those lines you see under each header.
+It has nothing to do with the styling of any content or image*/
+section.about div.about-header div#line {
+  width: 100px;
+  height: 5px;
+  background-color: blue;
+  margin: auto;
+}
+
+section. div.about-header div#line {
+  width: 100px;
+  height: 5px;
+  background-color: red;
+  margin: auto;
+}
+
+section.partnersAndSponsors  div.partnersAndSponsorsHeader div#line {
+  width: 100px;
+  height: 5px;
+  background-color: blue;
+  margin: auto;
+}
+section.service  div.serviceheader div#line {
+  width: 100px;
+  height: 5px;
+  background-color: blue;
+  margin: auto;
+}
+
+section.whyJoinhealth div.whyJoinhealth-header div#line {
+  width: 100px;
+  height: 5px;
+  background-color: blue;
+}
+/* .......... */
+
+
+section.partnersAndSponsors div.googleImage {
+  margin-top: 20px;
+}
+
+section.partnersAndSponsors img {
+  width: 200px;
+}
+
+section div.membershipTerms p, ul li {
+  font-size: 14px;
+}
+
+section div.membershipTerms div.membershipBtn a.btn {
+  background-color: #006400;
+  margin-top: 10px;
+}
+
+section.whyJoinhealth span {
+  font-family: 'Open Sans', sans-serif;
+  color: grey;
+  font-size: 16px;
+}
+
+section.contact {
+  background-color: #e8eaed;
+}
+
+footer {
+  background-color: #f5f5f5;
+  padding: 30px;
+}
+
+footer h4 {
+  font-size: 18px;
+  color: darkgrey;
+}
+
+
+/* Social Media Handle Stylings */
+i.fa-facebook {
+  border-radius: 15px;
+  background-color: blue;
+  padding: 10px 12px;
+  margin-right: 20px;
+}
+
+
+
+i.fa-instagram {
+  border-radius: 15px;
+  background-color: red;
+  padding: 10px;
+}
+/* .......... */
+
+
+/* Small Screen for navbar */
+@media (max-width: 575px), (max-width: 991px) {
+
+
+
+/* This is also for the header */
+@media (max-width: 575px) {
+  a.healthlogo span {
+    font-size: 20px !important;
+  }
+
+  a.healthlogo > img {
+    width: 50px !important;
+  }
+  /* ........... */
+
+  section.banner > div:nth-child(1) {
+    margin-top: 40px !important;
+  }
+
+  section.about img {
+    width: 285px !important;
+    height: 200px !important;
+  }
+
+
+  .googleLogo {
+    margin-bottom: 50px !important;
+  }
+}
+/* .......... */
+
+/* small screen for footer */
+@media (max-width: 991px) {
+  footer h4 {
+    margin: 20px 0 10px;
+  }
+}
+
+
+
+/* Miracle css start here */
+
+
+  /* text color on the landing
+  */
+  .color{
+    color:#9d9c9d;
+
+  }
+
+
+  /* for links button
+  */
+  a{
+    text-decoration: none !important;
+
+  }
+  .Latest{
+    width: 150px !important;
+  }
+
+
+  /* for smallscreen
+  */
+  @media (max-width: 991px) {
+    .smallscreen{
+    font-size: 30px !important;
+    width: 50rem !important;
+
+    }
+    .gdgimage{
+      height: 25vh !important;
+    }
+
+    /* for card margintop
+    */
+    .margintop{
+      margin-top: 30px !important;
+    }
+
+
+    /* modal for small screen
+    */
+    .mimi_model{
+      font-size: 30px !important;
+    }
+  }
