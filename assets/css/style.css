@@ -1,3 +1,4 @@
+
 /* ================== PRELOADER ================== */
         .preloader {
             position: fixed;
@@ -275,54 +276,6 @@
             }
         }
 
-.players2{
-   animation-name:bounceInLeft ;
-   animation-duration: 5s;
-   animation: auto linear bounceInLeft both;
-   animation-timeline: view();
-   animation-range: entry 10% cover 20%;
-  }
-
-@keyframes bounceInLeft {
-   0% {
-      opacity: 0;
-      transform: translateX(-2000px);
-   }
-   60% {
-      opacity: 1;
-      transform: translateX(30px);
-   }
-   80% {
-      transform: translateX(-10px);
-   }
-   100% {
-      transform: translateX(0);
-   }
-}
-.players3{
-   animation-name:bounceInRight ;
-   animation-duration: 5s;
-   animation: auto linear bounceInRight both;
-   animation-timeline: view();
-   animation-range: entry 10% cover 30%;
-  }
-
-  @keyframes bounceInRight {
-     0% {
-        opacity: 0;
-        transform: translateX(2000px);
-     }
-     60% {
-        opacity: 1;
-        transform: translateX(-30px);
-     }
-     80% {
-        transform: translateX(10px);
-     }
-     100% {
-        transform: translateX(0);
-     }
-  }
 
   .live-clip-animation{
      animation-name:lightSpeedIn ;
@@ -574,6 +527,7 @@ i.fa-instagram {
     font-size: 30px !important;
     width: 50rem !important;
 
+
     }
     .gdgimage{
       height: 25vh !important;
@@ -591,4 +545,5 @@ i.fa-instagram {
     .mimi_model{
       font-size: 30px !important;
     }
+     
   }
